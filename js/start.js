@@ -6,7 +6,7 @@ function openNav() {
 function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
         document.getElementById("wrapper").style.visibility = "visible";
-	  }
+    }
 var map;
 var largeInfowindow;
     // Constructor creates a new map
