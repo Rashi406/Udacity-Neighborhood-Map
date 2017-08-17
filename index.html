@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lucknow Hospitals</title>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  </head>
+  <body>
+    <div class="container">
+      <!-- List of locations -->
+      <div id="mySidenav" class="sidenav">
+  		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&laquo;</a>
+  		  <h3>Hospitals In</h3>
+        <h1>Lucknow</h1>
+        <hr>
+  		  <div id='opt'>
+          <div>
+            <input id="filter-text" type="text" placeholder="Enter your favorite area!" data-bind="value: filter, valueUpdate: 'afterkeydown'">
+            <input id="filter-area" type="button" value="Filter">
+          </div>
+          <h2 data-bind="visible: isempty">Sorry unable to find hospital</h2>
+          <ul class="wrapper" data-bind="foreach: filteredItems">
+          	<li><a href=# data-bind="text: title, click: $parent.setopt"></a><hr></li>
+        	</ul>
+        </div>
+      </div>
+      <!-- Add Google map -->
+      <div id="map"></div>
+      <div id="wrapper">
+        <!-- Open list of locations -->
+        <span class="opnbtn" onclick="openNav()">&raquo; OPEN</span>
+      </div>
+    </div>
+    <script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("wrapper").style.visibility = "hidden";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("wrapper").style.visibility = "visible";
+    }
+    </script>
+    <script>
+    var map;
+    // Constructor creates a new map
+    function initMap() {
+      	geocoder = new google.maps.Geocoder();
+      	map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 26.8467, lng: 80.9462},
+                zoom: 13,
+                mapTypeControl: false
+              });
+    	}
+    function error(){
+        alert('There was an error with the Google API call.'+
+              'Please refresh the page and try again');
+    }
+    </script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/knockout-3.2.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script defer
+    src=
+      "https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyAGflWhlql-JfwEE5Bao6v6GSlS-ZaydeY&v=3&callback=initMap" 
+      onerror="error()">
+    </script>
+    <script defer type="text/javascript" src="js/appv3.js"></script>
+  </body>
+</html>
