@@ -6,6 +6,7 @@ There is also a search feature to allow the user to search through the locations
 * Clone this repository : git clone https://github.com/Rashi406/Udacity-Neighborhood-Map.git
 * Change the working directory : cd Udacity-Neighborhood-Map
 * Open index.html, this opens the website in your default browser.
+* Alternative: Live version [here](https://rashi406.github.io/)
 
 ## Functionality
 * Google map loaded from Maps API.
